@@ -7,17 +7,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li><a href="dashboard.html">Beranda</a></li>
+            <li><a href="stok.html" class="active">Informasi Bahan Ajar</a></li>
+            <li><a href="tracking.html">Tracking Pengiriman</a></li>
+            <li class="dropdown">
+                <button class="dropbtn">Laporan ▼</button>
+                <div class="dropdown-content">
+                    <a href="#monitoring">Monitoring Progress DO Bahan Ajar</a>
+                    <a href="#rekap">Rekap Bahan Ajar</a>
+                </div>
+            </li>
+            <li><a href="#histori">Histori Transaksi Bahan Ajar</a></li>
+            <li><button id="logout-btn" class="logout-button">Keluar</button></li>
+        </ul>
+    </nav>
+    <div class="container header-title">
         <h1>Informasi Bahan Ajar</h1>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="dashboard.html">Beranda</a></li>
-                <li><a href="stok.html" class="active">Informasi Bahan Ajar</a></li>
-                <li><a href="tracking.html">Tracking Pengiriman</a></li>
-                <li><button id="logout-btn" class="logout-button">Keluar</button></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
 
     <main class="container">
         <h2>Paragaan Data Bahan Ajar</h2>
@@ -32,6 +40,8 @@
                 <input type="text" id="jenisBarangNew" placeholder="Jenis Barang (BMP)" required>
                 <input type="text" id="edisiNew" placeholder="Edisi" required>
                 <input type="number" id="stokNew" placeholder="Stok" required min="1">
+                <label for="coverNew" style="font-weight:normal; font-size:0.9em;">Upload Cover (Opsional):</label>
+                <input type="file" id="coverNew" accept="image/*" style="margin-bottom:15px;">
                 <button type="submit" class="success-button">Simpan Stok</button>
                 <button type="button" id="cancel-add-btn" class="secondary-button">Batal</button>
             </form>
@@ -54,6 +64,26 @@
                 <tbody id="stok-table-body">
                     </tbody>
             </table>
+        </div>
+
+        <!-- Modal Edit Stok -->
+        <div id="edit-stock-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-edit-modal">&times;</span>
+                <h3>Edit Bahan Ajar</h3>
+                <form id="edit-stock-form" class="stock-form">
+                    <input type="hidden" id="editIndex">
+                    <input type="text" id="editKodeLokasi" placeholder="Kode Lokasi" required>
+                    <input type="text" id="editKodeBarang" placeholder="Kode Barang" required>
+                    <input type="text" id="editNamaBarang" placeholder="Nama Barang" required>
+                    <input type="text" id="editJenisBarang" placeholder="Jenis Barang" required>
+                    <input type="text" id="editEdisi" placeholder="Edisi" required>
+                    <input type="number" id="editStok" placeholder="Stok" required min="0">
+                    <label for="editCover" style="font-weight:normal; font-size:0.9em;">Update Cover (Biarkan kosong jika tidak ingin mengubah):</label>
+                    <input type="file" id="editCover" accept="image/*" style="margin-bottom:15px;">
+                    <button type="submit" class="success-button">Simpan Perubahan</button>
+                </form>
+            </div>
         </div>
     </main>
 
