@@ -41,7 +41,7 @@ body {
 
 /* --- Header & Navigation --- */
 .top-nav {
-    background-color: #333;
+    background-color: rgb(0, 54, 134);
     width: 100%;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 .nav-menu a:hover, .dropdown:hover .dropbtn, .logout-button:hover, .nav-menu .active {
-    background-color: #f44336;
+    background-color: var(--primary-color);
 }
 
 .header-title {
@@ -79,7 +79,7 @@ body {
 }
 .header-title h1 {
     font-size: 1.5em;
-    color: #000;
+    color: var(--primary-color);
 }
 
 .footer {
